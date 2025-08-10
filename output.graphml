@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+  <key id="status" for="node" attr.name="status" attr.type="string"/>
+  <key id="calls" for="edge" attr.name="calls" attr.type="int"/>
+  <graph id="G" edgedefault="directed">
+    <node id="A">
+      <data key="status">Moderate Coupling</data>
+    </node>
+    <node id="B">
+      <data key="status">Moderate Coupling</data>
+    </node>
+    <node id="C">
+      <data key="status">Moderate Coupling</data>
+    </node>
+    <node id="D">
+      <data key="status">Low Coupling</data>
+    </node>
+    <node id="E">
+      <data key="status">Low Coupling</data>
+    </node>
+    <edge id="e0" source="A" target="B">
+      <data key="calls">2</data>
+    </edge>
+    <edge id="e1" source="A" target="C">
+      <data key="calls">1</data>
+    </edge>
+    <edge id="e2" source="A" target="D">
+      <data key="calls">3</data>
+    </edge>
+    <edge id="e3" source="B" target="C">
+      <data key="calls">3</data>
+    </edge>
+    <edge id="e4" source="B" target="D">
+      <data key="calls">1</data>
+    </edge>
+    <edge id="e5" source="C" target="D">
+      <data key="calls">3</data>
+    </edge>
+    <edge id="e6" source="C" target="E">
+      <data key="calls">1</data>
+    </edge>
+    <edge id="e7" source="D" target="E">
+      <data key="calls">4</data>
+    </edge>
+    <edge id="e8" source="E" target="F">
+      <data key="calls">1</data>
+    </edge>
+  </graph>
+</graphml>

@@ -5,8 +5,10 @@ import dci.parser.DCITraceParser;
 import dci.graph.DynamicCallGraph;
 import dci.metrics.DCIComputer;
 import dci.output.CSVWriter;
+import dci.visualization.GraphMLExporter;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +18,7 @@ public class DCIMain {
             System.err.println("Usage: java dci.DCIMain <zipkin_trace.json> <output.csv>");
             System.exit(1);
         }
+        
         String tracePath = args[0];
         String outputPath = args[1];
 
@@ -33,11 +36,17 @@ public class DCIMain {
             graph.addCall(call);
         }
 
-        // 3. Compute DCI scores
+        // 3. Compute RMT-based DCI scores
         DCIComputer computer = new DCIComputer();
         Map<String, Double> dciScores = computer.computeDCI(graph);
+        
+        // 4. Print basic statistics
+        System.out.println("System Statistics:");
+        System.out.println("  Total Services: " + graph.getTotalServicesInSystem());
+        System.out.println("  Active Services: " + graph.getActiveServicesCount());
+        System.out.println("  Isolated Services: " + graph.getIsolatedServicesCount());
 
-        // 4. Write results to CSV
+        // 5. Write results to CSV
         CSVWriter writer = new CSVWriter();
         try {
             writer.writeDCIScores(dciScores, new File(outputPath));
@@ -46,5 +55,26 @@ public class DCIMain {
             System.err.println("Error writing CSV: " + e.getMessage());
             System.exit(3);
         }
+
+        // 6. Build status map for visualization
+        Map<String, String> statusMap = new HashMap<>();
+        for (Map.Entry<String, Double> entry : dciScores.entrySet()) {
+            String service = entry.getKey();
+            double dci = entry.getValue();
+            String status = computer.getStatus(dci);
+            statusMap.put(service, status);
+        }
+
+        // 7. Export GraphML for visualization
+        try {
+            GraphMLExporter.export(graph, statusMap, new File("output.graphml"));
+            System.out.println("GraphML file written to output.graphml");
+        } catch (Exception e) {
+            System.err.println("Error writing GraphML: " + e.getMessage());
+        }
+
+        // 8. Print summary
+        System.out.println("\nDCI Analysis Complete!");
+        System.out.println("RMT-based Dynamic Coupling Index calculated for " + dciScores.size() + " services.");
     }
 } 

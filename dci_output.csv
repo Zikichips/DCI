@@ -1,7 +1,0 @@
-Service,DCI,Status
-A,0.39,Moderate Coupling
-B,0.63,Moderate Coupling
-C,0.63,Moderate Coupling
-D,1.00,Highly Coupled
-E,1.00,Highly Coupled
-F,0.00,No Outgoing Calls
