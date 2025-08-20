@@ -16,8 +16,8 @@ public class GraphMLExporter {
             writer.write("  <key id=\"calls\" for=\"edge\" attr.name=\"calls\" attr.type=\"int\"/>\n");
             writer.write("  <graph id=\"G\" edgedefault=\"directed\">\n");
 
-            // Nodes
-            for (String service : callGraph.getAllServices()) {
+            // Nodes - include ALL services in system (including isolated ones)
+            for (String service : callGraph.getAllServicesInSystem()) {
                 String status = statusMap.getOrDefault(service, "");
                 writer.write("    <node id=\"" + service + "\">\n");
                 writer.write("      <data key=\"status\">" + status + "</data>\n");
@@ -26,7 +26,7 @@ public class GraphMLExporter {
 
             // Edges
             int edgeId = 0;
-            for (String caller : callGraph.getAllServices()) {
+            for (String caller : callGraph.getAllServicesInSystem()) {
                 for (Map.Entry<String, Integer> entry : callGraph.getOutgoingCalls(caller).entrySet()) {
                     String callee = entry.getKey();
                     int count = entry.getValue();

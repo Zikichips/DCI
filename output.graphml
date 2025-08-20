@@ -18,6 +18,9 @@
     <node id="E">
       <data key="status">Low Coupling</data>
     </node>
+    <node id="F">
+      <data key="status">No Coupling</data>
+    </node>
     <edge id="e0" source="A" target="B">
       <data key="calls">2</data>
     </edge>

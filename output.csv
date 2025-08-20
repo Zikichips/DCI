@@ -1,0 +1,7 @@
+Service,DCI,Status
+A,0.600,Moderate Coupling
+B,0.400,Moderate Coupling
+C,0.400,Moderate Coupling
+D,0.200,Low Coupling
+E,0.200,Low Coupling
+F,0.000,No Coupling
