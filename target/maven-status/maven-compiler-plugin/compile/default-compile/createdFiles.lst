@@ -2,6 +2,7 @@ dci/graph/DynamicCallGraph.class
 dci/metrics/DCIComputer.class
 dci/parser/DCITraceParser.class
 dci/DCIMain.class
+dci/parser/DCITraceParser$2.class
 dci/model/TraceCall.class
 dci/visualization/GraphMLExporter.class
 dci/parser/DCITraceParser$1.class
