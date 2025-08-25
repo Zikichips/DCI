@@ -46,6 +46,8 @@ mvn exec:java -Dexec.args="zepkin_trace.json output.csv"
 
 # Or compile and run directly
 mvn clean compile
+mvn exec:java -Dexec.mainClass="dci.DCIMain" -Dexec.args="zepkin_trace.json test_output.csv"
+
 java -cp target/classes dci.DCIMain zepkin_trace.json output.csv
 ```
 

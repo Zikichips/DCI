@@ -5,6 +5,9 @@
   <key id="dci_score" for="node" attr.name="dci_score" attr.type="double"/>
   <key id="size" for="node" attr.name="size" attr.type="double"/>
   <key id="color" for="node" attr.name="color" attr.type="string"/>
+  <key id="r" for="node" attr.name="r" attr.type="int"/>
+  <key id="g" for="node" attr.name="g" attr.type="int"/>
+  <key id="b" for="node" attr.name="b" attr.type="int"/>
   <key id="incoming_calls" for="node" attr.name="incoming_calls" attr.type="int"/>
   <key id="outgoing_calls" for="node" attr.name="outgoing_calls" attr.type="int"/>
   <key id="x" for="node" attr.name="x" attr.type="double"/>
@@ -16,8 +19,11 @@
       <data key="label">A</data>
       <data key="status">Moderate Coupling</data>
       <data key="dci_score">0.600</data>
-      <data key="size">1.40</data>
+      <data key="size">34.00</data>
       <data key="color">#ff8800</data>
+      <data key="r">255</data>
+      <data key="g">136</data>
+      <data key="b">0</data>
       <data key="incoming_calls">0</data>
       <data key="outgoing_calls">6</data>
       <data key="x">300.00</data>
@@ -27,8 +33,11 @@
       <data key="label">B</data>
       <data key="status">Moderate Coupling</data>
       <data key="dci_score">0.400</data>
-      <data key="size">1.10</data>
+      <data key="size">26.00</data>
       <data key="color">#ff8800</data>
+      <data key="r">255</data>
+      <data key="g">136</data>
+      <data key="b">0</data>
       <data key="incoming_calls">2</data>
       <data key="outgoing_calls">4</data>
       <data key="x">250.00</data>
@@ -38,8 +47,11 @@
       <data key="label">C</data>
       <data key="status">Moderate Coupling</data>
       <data key="dci_score">0.400</data>
-      <data key="size">1.10</data>
+      <data key="size">26.00</data>
       <data key="color">#ff8800</data>
+      <data key="r">255</data>
+      <data key="g">136</data>
+      <data key="b">0</data>
       <data key="incoming_calls">4</data>
       <data key="outgoing_calls">4</data>
       <data key="x">150.00</data>
@@ -49,8 +61,11 @@
       <data key="label">D</data>
       <data key="status">Low Coupling</data>
       <data key="dci_score">0.200</data>
-      <data key="size">0.80</data>
+      <data key="size">18.00</data>
       <data key="color">#ffff00</data>
+      <data key="r">255</data>
+      <data key="g">255</data>
+      <data key="b">0</data>
       <data key="incoming_calls">7</data>
       <data key="outgoing_calls">4</data>
       <data key="x">100.00</data>
@@ -60,8 +75,11 @@
       <data key="label">E</data>
       <data key="status">Low Coupling</data>
       <data key="dci_score">0.200</data>
-      <data key="size">0.80</data>
+      <data key="size">18.00</data>
       <data key="color">#ffff00</data>
+      <data key="r">255</data>
+      <data key="g">255</data>
+      <data key="b">0</data>
       <data key="incoming_calls">5</data>
       <data key="outgoing_calls">1</data>
       <data key="x">150.00</data>
@@ -71,8 +89,11 @@
       <data key="label">F</data>
       <data key="status">No Coupling</data>
       <data key="dci_score">0.000</data>
-      <data key="size">0.50</data>
+      <data key="size">10.00</data>
       <data key="color">#888888</data>
+      <data key="r">136</data>
+      <data key="g">136</data>
+      <data key="b">136</data>
       <data key="incoming_calls">1</data>
       <data key="outgoing_calls">0</data>
       <data key="x">250.00</data>
