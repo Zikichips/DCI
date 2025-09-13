@@ -24,9 +24,6 @@ import java.util.Map;
  * The RMT approach provides relative coupling measurement by comparing actual couplings
  * to the maximum possible couplings in the system, enabling fair comparison across
  * different system sizes and architectures.
- * 
- * @author Research Team
- * @version 1.0
  */
 public class DCIMain {
     
@@ -98,8 +95,7 @@ public class DCIMain {
      * 
      * This method performs basic file system checks to ensure the trace file
      * can be read before attempting to parse it, providing early error detection.
-     * 
-     * @param tracePath Path to the trace file
+     *
      * @return File object representing the validated trace file
      */
     private static File validateInputFile(String tracePath) {
@@ -119,8 +115,7 @@ public class DCIMain {
      * all service-to-service calls, aggregating call counts for each unique
      * caller-callee pair. The parser handles various trace formats and provides
      * detailed progress information during parsing.
-     * 
-     * @param traceFile The trace file to parse
+     *
      * @return List of TraceCall objects representing service interactions
      */
     private static List<TraceCall> parseTraceFile(File traceFile) {
@@ -200,7 +195,7 @@ public class DCIMain {
         System.out.println("  Isolated Services: " + graph.getIsolatedServicesCount());
         System.out.println("  Total Service Calls: " + traceCalls.size());
         
-        // Additional insights for research presentation
+
         System.out.println("\nCoupling Analysis Insights:");
         System.out.println("  - Services with high coupling (≥0.7): " + 
             graph.getAllServicesInSystem().stream()

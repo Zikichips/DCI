@@ -22,9 +22,6 @@ import java.util.Set;
  * 
  * The graph structure enables efficient querying of service relationships and
  * provides the data foundation for RMT-based coupling calculations.
- * 
- * @author Research Team
- * @version 1.0
  */
 public class DynamicCallGraph {
     /**

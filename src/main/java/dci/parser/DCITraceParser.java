@@ -27,8 +27,7 @@ import java.util.*;
  * The parser is designed to work with distributed tracing systems that
  * capture service interactions in microservice architectures.
  * 
- * @author Research Team
- * @version 1.0
+ *
  */
 public class DCITraceParser {
     /**

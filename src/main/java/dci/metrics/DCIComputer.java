@@ -20,9 +20,7 @@ import java.util.Map;
  * 
  * The RMT approach addresses the limitation of absolute coupling metrics by
  * providing a normalized measure that considers the system-wide context.
- * 
- * @author Research Team
- * @version 1.0
+ *
  */
 public class DCIComputer {
     

@@ -1,0 +1,325 @@
+[
+  {
+    "traceId": "madao-trace-v3-001",
+    "id": "span-001",
+    "name": "gateway-request",
+    "timestamp": 1640000003000,
+    "duration": 200,
+    "localEndpoint": {
+      "serviceName": "madao-web-gateway",
+      "ipv4": "127.0.0.1",
+      "port": 8080
+    },
+    "remoteEndpoint": {
+      "serviceName": "client",
+      "ipv4": "127.0.0.1"
+    },
+    "tags": {
+      "http.method": "GET",
+      "http.path": "/api/article/analytics"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-001",
+    "id": "span-002",
+    "parentId": "span-001",
+    "name": "article-service-call",
+    "timestamp": 1640000003050,
+    "duration": 180,
+    "localEndpoint": {
+      "serviceName": "madao-web-gateway",
+      "ipv4": "127.0.0.1",
+      "port": 8080
+    },
+    "remoteEndpoint": {
+      "serviceName": "madao-service-article",
+      "ipv4": "127.0.0.1",
+      "port": 9003
+    },
+    "tags": {
+      "http.method": "GET",
+      "http.path": "/api/articles/analytics"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-001",
+    "id": "span-003",
+    "parentId": "span-002",
+    "name": "base-service-call",
+    "timestamp": 1640000003100,
+    "duration": 120,
+    "localEndpoint": {
+      "serviceName": "madao-service-article",
+      "ipv4": "127.0.0.1",
+      "port": 9003
+    },
+    "remoteEndpoint": {
+      "serviceName": "madao-service-base",
+      "ipv4": "127.0.0.1",
+      "port": 9004
+    },
+    "tags": {
+      "http.method": "GET",
+      "http.path": "/api/base/analytics-config"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-001",
+    "id": "span-004",
+    "parentId": "span-002",
+    "name": "user-service-call",
+    "timestamp": 1640000003120,
+    "duration": 150,
+    "localEndpoint": {
+      "serviceName": "madao-service-article",
+      "ipv4": "127.0.0.1",
+      "port": 9003
+    },
+    "remoteEndpoint": {
+      "serviceName": "madao-service-user",
+      "ipv4": "127.0.0.1",
+      "port": 9002
+    },
+    "tags": {
+      "http.method": "GET",
+      "http.path": "/api/users/analytics-data"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-002",
+    "id": "span-005",
+    "name": "gateway-request",
+    "timestamp": 1640000003300,
+    "duration": 250,
+    "localEndpoint": {
+      "serviceName": "madao-web-gateway",
+      "ipv4": "127.0.0.1",
+      "port": 8080
+    },
+    "remoteEndpoint": {
+      "serviceName": "client",
+      "ipv4": "127.0.0.1"
+    },
+    "tags": {
+      "http.method": "POST",
+      "http.path": "/api/user/bulk-operation"
+    }
+  },
+  {
+    "traceId": "madao-trace-v2-002",
+    "id": "span-006",
+    "parentId": "span-005",
+    "name": "user-service-call",
+    "timestamp": 1640000003350,
+    "duration": 200,
+    "localEndpoint": {
+      "serviceName": "madao-web-gateway",
+      "ipv4": "127.0.0.1",
+      "port": 8080
+    },
+    "remoteEndpoint": {
+      "serviceName": "madao-service-user",
+      "ipv4": "127.0.0.1",
+      "port": 9002
+    },
+    "tags": {
+      "http.method": "POST",
+      "http.path": "/api/users/bulk-operation"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-002",
+    "id": "span-007",
+    "parentId": "span-006",
+    "name": "base-service-call",
+    "timestamp": 1640000003400,
+    "duration": 140,
+    "localEndpoint": {
+      "serviceName": "madao-service-user",
+      "ipv4": "127.0.0.1",
+      "port": 9002
+    },
+    "remoteEndpoint": {
+      "serviceName": "madao-service-base",
+      "ipv4": "127.0.0.1",
+      "port": 9004
+    },
+    "tags": {
+      "http.method": "GET",
+      "http.path": "/api/base/bulk-config"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-002",
+    "id": "span-008",
+    "parentId": "span-006",
+    "name": "article-service-call",
+    "timestamp": 1640000003420,
+    "duration": 180,
+    "localEndpoint": {
+      "serviceName": "madao-service-user",
+      "ipv4": "127.0.0.1",
+      "port": 9002
+    },
+    "remoteEndpoint": {
+      "serviceName": "madao-service-article",
+      "ipv4": "127.0.0.1",
+      "port": 9003
+    },
+    "tags": {
+      "http.method": "GET",
+      "http.path": "/api/articles/user-related"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-003",
+    "id": "span-009",
+    "name": "auth-server-request",
+    "timestamp": 1640000003600,
+    "duration": 180,
+    "localEndpoint": {
+      "serviceName": "madao-authentication-server",
+      "ipv4": "127.0.0.1",
+      "port": 9001
+    },
+    "remoteEndpoint": {
+      "serviceName": "client",
+      "ipv4": "127.0.0.1"
+    },
+    "tags": {
+      "http.method": "POST",
+      "http.path": "/oauth/validate"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-003",
+    "id": "span-010",
+    "parentId": "span-009",
+    "name": "user-service-call",
+    "timestamp": 1640000003650,
+    "duration": 160,
+    "localEndpoint": {
+      "serviceName": "madao-authentication-server",
+      "ipv4": "127.0.0.1",
+      "port": 9001
+    },
+    "remoteEndpoint": {
+      "serviceName": "madao-service-user",
+      "ipv4": "127.0.0.1",
+      "port": 9002
+    },
+    "tags": {
+      "http.method": "POST",
+      "http.path": "/api/users/validate-token"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-003",
+    "id": "span-011",
+    "parentId": "span-010",
+    "name": "base-service-call",
+    "timestamp": 1640000003700,
+    "duration": 110,
+    "localEndpoint": {
+      "serviceName": "madao-service-user",
+      "ipv4": "127.0.0.1",
+      "port": 9002
+    },
+    "remoteEndpoint": {
+      "serviceName": "madao-service-base",
+      "ipv4": "127.0.0.1",
+      "port": 9004
+    },
+    "tags": {
+      "http.method": "GET",
+      "http.path": "/api/base/auth-config"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-004",
+    "id": "span-012",
+    "name": "gateway-request",
+    "timestamp": 1640000003900,
+    "duration": 220,
+    "localEndpoint": {
+      "serviceName": "madao-web-gateway",
+      "ipv4": "127.0.0.1",
+      "port": 8080
+    },
+    "remoteEndpoint": {
+      "serviceName": "client",
+      "ipv4": "127.0.0.1"
+    },
+    "tags": {
+      "http.method": "GET",
+      "http.path": "/api/system/status"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-004",
+    "id": "span-013",
+    "parentId": "span-012",
+    "name": "base-service-call",
+    "timestamp": 1640000003950,
+    "duration": 130,
+    "localEndpoint": {
+      "serviceName": "madao-web-gateway",
+      "ipv4": "127.0.0.1",
+      "port": 8080
+    },
+    "remoteEndpoint": {
+      "serviceName": "madao-service-base",
+      "ipv4": "127.0.0.1",
+      "port": 9004
+    },
+    "tags": {
+      "http.method": "GET",
+      "http.path": "/api/base/system-status"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-004",
+    "id": "span-014",
+    "parentId": "span-013",
+    "name": "user-service-call",
+    "timestamp": 1640000004000,
+    "duration": 100,
+    "localEndpoint": {
+      "serviceName": "madao-service-base",
+      "ipv4": "127.0.0.1",
+      "port": 9004
+    },
+    "remoteEndpoint": {
+      "serviceName": "madao-service-user",
+      "ipv4": "127.0.0.1",
+      "port": 9002
+    },
+    "tags": {
+      "http.method": "GET",
+      "http.path": "/api/users/system-status"
+    }
+  },
+  {
+    "traceId": "madao-trace-v3-004",
+    "id": "span-015",
+    "parentId": "span-013",
+    "name": "article-service-call",
+    "timestamp": 1640000004020,
+    "duration": 120,
+    "localEndpoint": {
+      "serviceName": "madao-service-base",
+      "ipv4": "127.0.0.1",
+      "port": 9004
+    },
+    "remoteEndpoint": {
+      "serviceName": "madao-service-article",
+      "ipv4": "127.0.0.1",
+      "port": 9003
+    },
+    "tags": {
+      "http.method": "GET",
+      "http.path": "/api/articles/system-status"
+    }
+  }
+]
+

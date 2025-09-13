@@ -24,9 +24,6 @@ import java.util.Map;
  * - Create custom visualizations and reports
  * - Perform statistical analysis on coupling patterns
  * - Compare results across different systems or time periods
- * 
- * @author Research Team
- * @version 1.0
  */
 public class CSVWriter {
     

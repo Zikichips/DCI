@@ -1,6 +1,6 @@
 Service,DCI,Status
-madao-service-base,0.000,No Coupling
-madao-service-user,0.200,Low Coupling
+madao-service-base,0.400,Moderate Coupling
+madao-service-user,0.400,Moderate Coupling
 madao-web-gateway,0.800,High Coupling
 client,0.000,No Coupling
 madao-authentication-server,0.400,Moderate Coupling

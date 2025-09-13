@@ -15,9 +15,7 @@ package dci.model;
  * The TraceCall objects are created during trace parsing and serve as the
  * building blocks for constructing the dynamic call graph and calculating
  * coupling metrics.
- * 
- * @author Research Team
- * @version 1.0
+ *
  */
 public class TraceCall {
     /**

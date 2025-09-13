@@ -50,21 +50,18 @@ public class GraphMLExporter {
         writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
         writer.write("<graphml xmlns=\"http://graphml.graphdrawing.org/xmlns\">\n");
         
-        // Node attributes - using Gephi's standard naming conventions
+        // Node attributes - using simple names without spaces for better Gephi compatibility
         writer.write("  <key id=\"label\" for=\"node\" attr.name=\"label\" attr.type=\"string\"/>\n");
         writer.write("  <key id=\"status\" for=\"node\" attr.name=\"status\" attr.type=\"string\"/>\n");
         writer.write("  <key id=\"dci_score\" for=\"node\" attr.name=\"dci_score\" attr.type=\"double\"/>\n");
         writer.write("  <key id=\"size\" for=\"node\" attr.name=\"size\" attr.type=\"double\"/>\n");
         writer.write("  <key id=\"color\" for=\"node\" attr.name=\"color\" attr.type=\"string\"/>\n");
-        writer.write("  <key id=\"r\" for=\"node\" attr.name=\"r\" attr.type=\"int\"/>\n");
-        writer.write("  <key id=\"g\" for=\"node\" attr.name=\"g\" attr.type=\"int\"/>\n");
-        writer.write("  <key id=\"b\" for=\"node\" attr.name=\"b\" attr.type=\"int\"/>\n");
         writer.write("  <key id=\"incoming_calls\" for=\"node\" attr.name=\"incoming_calls\" attr.type=\"int\"/>\n");
         writer.write("  <key id=\"outgoing_calls\" for=\"node\" attr.name=\"outgoing_calls\" attr.type=\"int\"/>\n");
         writer.write("  <key id=\"x\" for=\"node\" attr.name=\"x\" attr.type=\"double\"/>\n");
         writer.write("  <key id=\"y\" for=\"node\" attr.name=\"y\" attr.type=\"double\"/>\n");
         
-        // Edge attributes - using Gephi's standard naming conventions
+        // Edge attributes
         writer.write("  <key id=\"weight\" for=\"edge\" attr.name=\"weight\" attr.type=\"double\"/>\n");
         writer.write("  <key id=\"calls\" for=\"edge\" attr.name=\"calls\" attr.type=\"int\"/>\n");
     }
@@ -92,12 +89,11 @@ public class GraphMLExporter {
             String status = statusMap.getOrDefault(service, "Unknown");
             double dciScore = dciScores.getOrDefault(service, 0.0);
             
-            // Calculate node size based on DCI score (10 to 50 range for better visibility in Gephi)
-            double nodeSize = 10.0 + (dciScore * 40.0);
+            // Calculate node size based on DCI score (0.5 to 2.0 range)
+            double nodeSize = 0.5 + (dciScore * 1.5);
             
             // Determine node color based on coupling status
             String nodeColor = getNodeColor(status);
-            int[] rgbValues = hexToRgb(nodeColor);
             
             // Get call statistics
             int incomingCalls = callGraph.getTotalIncomingCalls(service);
@@ -109,16 +105,13 @@ public class GraphMLExporter {
             double x = 200.0 + radius * Math.cos(angle);
             double y = 200.0 + radius * Math.sin(angle);
             
-            // Write node with all attributes (no graphics elements)
+            // Write node with all attributes
             writer.write("    <node id=\"" + service + "\">\n");
             writer.write("      <data key=\"label\">" + service + "</data>\n");
             writer.write("      <data key=\"status\">" + status + "</data>\n");
             writer.write("      <data key=\"dci_score\">" + String.format("%.3f", dciScore) + "</data>\n");
             writer.write("      <data key=\"size\">" + String.format("%.2f", nodeSize) + "</data>\n");
             writer.write("      <data key=\"color\">" + nodeColor + "</data>\n");
-            writer.write("      <data key=\"r\">" + rgbValues[0] + "</data>\n");
-            writer.write("      <data key=\"g\">" + rgbValues[1] + "</data>\n");
-            writer.write("      <data key=\"b\">" + rgbValues[2] + "</data>\n");
             writer.write("      <data key=\"incoming_calls\">" + incomingCalls + "</data>\n");
             writer.write("      <data key=\"outgoing_calls\">" + outgoingCalls + "</data>\n");
             writer.write("      <data key=\"x\">" + String.format("%.2f", x) + "</data>\n");
@@ -175,20 +168,6 @@ public class GraphMLExporter {
             default:
                 return "#cccccc"; // Light gray for unknown status
         }
-    }
-    
-    /**
-     * Converts a hex color code (e.g., #ff0000) to an array of RGB values (0-255).
-     * 
-     * @param hex The hex color code (e.g., #ff0000)
-     * @return An array of three integers [r, g, b]
-     */
-    private static int[] hexToRgb(String hex) {
-        hex = hex.replace("#", "");
-        int r = Integer.parseInt(hex.substring(0, 2), 16);
-        int g = Integer.parseInt(hex.substring(2, 4), 16);
-        int b = Integer.parseInt(hex.substring(4, 6), 16);
-        return new int[]{r, g, b};
     }
 }
 
